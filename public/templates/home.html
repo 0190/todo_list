@@ -1,10 +1,10 @@
 	
 <div ng-controller='ProjectsCtrl'>
 	<div ng-repeat='pr in projects'>
-		{{ pr }}
+		{{ pr.name + ' : ' + pr.tasks }}
 	</div>
 </div>
 
 <div ng-controller='TasksCtrl'>
-	{{ s }}
+	{{ tasks }}
 </div>

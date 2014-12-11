@@ -1,5 +1,5 @@
 
 
-todoList.controller ('TasksCtrl', function ($scope) {
-	$scope.s = 'aaaa'
-});
+todoList.controller ('TasksCtrl', [ '$scope', function ($scope) {
+	$scope.tasks = 'glkj;';
+}]);

@@ -6,5 +6,5 @@ todoList.config(function ($routeProvider) {
   	{
       templateUrl: '../templates/home.html',
       controller: 'MainCtrl'
-    }) 
+    });
 })
