@@ -25,25 +25,30 @@ todoList.factory('Projects', function ($rootScope) {
     return selected_project;
   };
 
-  var update_project = function (name) {
-    selected_project = name;
+  var select_project = function (project) {
+    selected_project = project;
     $rootScope.$broadcast('Update');
   };
 
-  var add_project = function (name) {
-    project_list.push({'name': name, "tasks": [] });
-    update_project(name);
+  var add_project = function (project) {
+    project_list.push({'name': project, "tasks": [] });
+    select_project(project);
   };
 
   var add_task_to_project = function (project, task) {
     _.where(project_list, {'name': project})[0].tasks.push(task);
   };
 
+  var delete_project = function (project) {
+    _.remove(project_list, function (el) { return el.name === project; });
+  };
+
   return {
     get_project: get_project,
-    update_project: update_project,
+    select_project: select_project,
     add_project: add_project,
     add_task_to_project: add_task_to_project,
+    delete_project: delete_project,
     project_list: project_list
   };
 });

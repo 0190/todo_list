@@ -1,7 +1,7 @@
 <div id='projects' ng-controller='ProjectsCtrl'>
   <h2>Projects</h2> 
   <div ng-repeat='pr in projects' ng-click='on_click(pr.name)'>
-      {{ pr.name }}
+      <span ng-click='delete_project(pr.name)'>--</span> {{ pr.name }}
   </div>
   <div class='button' ng-click='add_project()'>Add project...</div>
 </div>

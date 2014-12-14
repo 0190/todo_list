@@ -5,7 +5,7 @@ todoList.controller('ProjectsCtrl', [ '$scope', 'Projects', function ($scope, Pr
   $scope.selected_project = Projects.selected_project;
 
   $scope.on_click = function (name) {
-    Projects.update_project(name);
+    Projects.select_project(name);
   };
 
   // Add projects
@@ -13,5 +13,10 @@ todoList.controller('ProjectsCtrl', [ '$scope', 'Projects', function ($scope, Pr
     var name = prompt('Enter the name of the project:');
     Projects.add_project(name);
   };
+
+  // Delete projects
+  $scope.delete_project = function (name) {
+    Projects.delete_project(name);
+  }
 
 }]);
