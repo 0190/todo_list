@@ -1,8 +1,16 @@
+/*globals todoList, $rootScope */
 
+todoList.controller('ProjectsCtrl', [ '$scope', 'Projects', function ($scope, Projects) {
+  $scope.projects = Projects.project_list;
+  $scope.selected_project = Projects.selected_project;
 
-todoList.controller('ProjectsCtrl', [ '$scope', function ($scope) {
-	$scope.projects = [
-		{'name': 'Project 1', 'tasks': '[task1, task2]'},
-		{'name': 'Project 2', 'tasks': '[task1, task2]'}
-	];
+  $scope.on_click = function (name) {
+    //update Project.selected_project
+    Projects.update_project(name);
+  };
+
+  $scope.add_project = function () {
+    console.log('adding project');
+  };
+
 }]);
