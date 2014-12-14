@@ -1,12 +1,14 @@
-<div id='projects'>
-  <h1>Projects</h1> 
+<div id='projects' ng-controller='ProjectsCtrl'>
+  <h2>Projects</h2> 
   <div ng-repeat='pr in projects' ng-click='on_click(pr.name)'>
       {{ pr.name }}
   </div>
+  <div class='button' ng-click='add_project()'>Add project...</div>
 </div>
 <div id='tasks' ng-controller='TasksCtrl'>
-  <h1>Tasks</h1>
+  <h2>Tasks {{ title() }}</h2>
   <div li ng-repeat='task in tasks'>
     {{ task }}
   </div>
+  <div class='button' ng-click='add_task()'>Add task...</div>
 </div>
