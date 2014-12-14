@@ -8,7 +8,7 @@
 <div id='tasks' ng-controller='TasksCtrl'>
   <h2>Tasks {{ title() }}</h2>
   <div li ng-repeat='task in tasks'>
-    {{ task }}
+    <input type="checkbox"></input>{{ task }}
   </div>
   <div class='button' ng-click='add_task()'>Add task...</div>
 </div>

@@ -1,4 +1,4 @@
-/*globals todoList, prompt*/
+/*globals todoList, prompt, alert*/
 
 todoList.controller('TasksCtrl', [ '$scope', 'Projects', function ($scope, Projects) {
   $scope.selected_project = Projects.get_project();
@@ -18,9 +18,16 @@ todoList.controller('TasksCtrl', [ '$scope', 'Projects', function ($scope, Proje
     $scope.tasks = _.where(Projects.project_list, { 'name': $scope.selected_project })[0].tasks;
   });
 
-  // Adding tasks
+  // Add tasks
   $scope.add_task = function () {
-    var description = prompt('Add task:');
-    Projects.add_task_to_project($scope.selected_project, description);
+    if ($scope.selected_project) {
+      var description = prompt('Add task:');
+      Projects.add_task_to_project($scope.selected_project, description);
+    } else {
+      alert('Please choose a project first.');
+    }
   };
+
+  // Complete tasks
+
 }]);

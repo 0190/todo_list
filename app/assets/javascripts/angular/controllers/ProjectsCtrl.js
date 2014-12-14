@@ -8,7 +8,7 @@ todoList.controller('ProjectsCtrl', [ '$scope', 'Projects', function ($scope, Pr
     Projects.update_project(name);
   };
 
-  // Adding projects
+  // Add projects
   $scope.add_project = function () {
     var name = prompt('Enter the name of the project:');
     Projects.add_project(name);
