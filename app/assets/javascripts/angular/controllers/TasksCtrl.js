@@ -27,7 +27,4 @@ todoList.controller('TasksCtrl', [ '$scope', 'Projects', function ($scope, Proje
       alert('Please choose a project first.');
     }
   };
-
-  // Complete tasks
-
 }]);
