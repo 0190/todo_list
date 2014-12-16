@@ -5,19 +5,19 @@ todoList.factory('Projects', function ($rootScope) {
   var project_list = [
       {
         "name": "Project1",
-        "tasks": ["task 1", "task 2", "task 3"]
+        "tasks": [{'name': "task 1", 'done': false}, {'name': "task 2", 'done': false}, {'name': "task 3", 'done': false}]
       },
       {
         "name": "Project2",
-        "tasks": ["pr2 task 1", "pr2 task 2", "pr3 task 3"]
+        "tasks": [{'name': "pr2 task 1", 'done': false} , {'name': "pr2 task 2", 'done': false}, {'name': "pr3 task 3", 'done': false}]
       },
       {
         "name": "Something else",
-        "tasks": ["task aa", "task phh"]
+        "tasks": [{'name': "task aa", 'done': false}, {'name': "task phh", 'done': false}]
       },
       {
         "name": "One more!",
-        "tasks": ["get some rest"]
+        "tasks": [{'name': "get some rest", 'done': false}]
       }
     ];
 
@@ -36,7 +36,7 @@ todoList.factory('Projects', function ($rootScope) {
   };
 
   var add_task_to_project = function (project, task) {
-    _.where(project_list, {'name': project})[0].tasks.push(task);
+    _.where(project_list, {'name': project})[0].tasks.push({'name': task, 'done': false});
   };
 
   var delete_project = function (project) {
