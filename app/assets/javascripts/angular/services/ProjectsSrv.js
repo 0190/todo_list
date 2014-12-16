@@ -9,7 +9,7 @@ todoList.factory('Projects', function ($rootScope) {
       },
       {
         "name": "Project2",
-        "tasks": [{'name': "pr2 task 1", 'done': false} , {'name': "pr2 task 2", 'done': false}, {'name': "pr3 task 3", 'done': false}]
+        "tasks": [{'name': "pr2 task 1", 'done': false}, {'name': "pr2 task 2", 'done': false}, {'name': "pr3 task 3", 'done': false}]
       },
       {
         "name": "Something else",

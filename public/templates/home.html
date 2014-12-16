@@ -1,15 +1,19 @@
 <div id='projects' ng-controller='ProjectsCtrl'>
   <h2>Projects</h2> 
-  <div ng-repeat='pr in projects' ng-click='on_click(pr.name)'>
-      <span ng-click='delete_project(pr.name)'>-</span> {{ pr.name }}
+  <div ng-class='{true:"selected",false:""}[pr.name===selected_project]' ng-repeat='pr in projects'>
+    <div class='list-element' project name='{{pr.name}}' select='on_click(pr.name)' delete='delete_project(pr.name)'></div>
   </div>
-  <div class='button' ng-click='add_project()'>Add project...</div>
+  <div class='list-element' todoadd name='pr.name' add='add_project(pr.name)'></div>
 </div>
 <div id='tasks' ng-controller='TasksCtrl'>
-  <h2>Tasks {{ title() }}</h2>
-  <div ng-repeat='task in tasks'>
-    <check completed='task.done'></check>
-    <span ng-class='{strike: task.done}'>{{task.name}} {{task.done}}</span>
+  <div ng-hide='selected_project'>
+    <h2>Choose project</h2>
   </div>
-  <div class='button' ng-click='add_task()'>Add task...</div>
+  <div ng-show='selected_project'>
+    <h2>Tasks for {{selected_project}}</h2>
+    <div ng-repeat='task in tasks track by $index'>
+      <div class='list-element' task index='$index' name='{{task.name}}' completed='task.done'></div>
+    </div>
+    <div class='list-element' todoadd name='task.name' add='add_task(task.name)'></div>
+  </div>
 </div>
